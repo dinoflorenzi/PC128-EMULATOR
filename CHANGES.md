@@ -1,0 +1,154 @@
+Next version
+===========
+Features
+--------
+* [49](https://github.com/Zlika/theodore/pull/49) Use libretro VFS (Virtual File System) interface for file access to be compatible with Android SAF (Storage Access Framework).
+
+Build infrastructure
+--------------------
+* Replaced src/libretro-common directory with a git submodule pointing towards https://github.com/libretro/libretro-common/.
+* Fix Windows CI job.
+
+Release 3.2 (2026/08/11)
+===========
+Features
+--------
+* Add an internal database of games with specific start commands for improved autostart feature.
+* Add an option to display a text hint to invit the user to press the 'Start' button to launch the game.
+* [43](https://github.com/Zlika/theodore/pull/43): Allow to select keyboard as emulated device (thanks [@houbilami](https://github.com/houbilami)).
+
+Bug fixes
+---------
+* [#23](https://github.com/Zlika/theodore/issues/23): Fix crash on Nintendo Switch (thanks [@cucholix](https://github.com/cucholix) and [@natinusala](https://github.com/natinusala) for helping me fix the problem).
+* Fix tape writing in MO mode.
+* [#28](https://github.com/Zlika/theodore/issues/28): Fix emulator crash (TO8/TO9/MO6 modes) if palette data register set to a value greater than 15.
+* [#31](https://github.com/Zlika/theodore/issues/31): Fix wrong cycle counts on some instructions (thanks [@bhrousseau](https://github.com/bhrousseau)).
+
+Build infrastructure
+--------------------
+* [#22](https://github.com/Zlika/theodore/pull/22): Add PS2 platform - [@fjtrujy](https://github.com/fjtrujy)
+* Add .gitlab-ci.yml and update makefile for compatibility with the new libretro build infrastructure - [@twinaphex](https://github.com/twinaphex)
+* [#26](https://github.com/Zlika/theodore/pull/26): Add armv8 + rpi64 support - [liberodark](https://github.com/liberodark)
+* [#30](https://github.com/Zlika/theodore/pull/30): Add rpi3_64 support - [jdorigao](https://github.com/jdorigao)
+* [#33](https://github.com/Zlika/theodore/pull/33): Add rpi1 support - [jdorigao](https://github.com/jdorigao)
+* [#34](https://github.com/Zlika/theodore/pull/34): Add Miyoo platform - [salvacam](https://github.com/salvacam)
+* [#35](https://github.com/Zlika/theodore/pull/35): Update PS3/PSL1GHT Makefile - [crystalct](https://github.com/crystalct)
+* [#41](https://github.com/Zlika/theodore/pull/41): WiiU Aroma CFW compatibility - [Ploggy](https://github.com/Ploggy)
+* [#42](https://github.com/Zlika/theodore/pull/42): iOS properly set min supported version - [warmenhoven](https://github.com/warmenhoven)
+* [#46](https://github.com/Zlika/theodore/pull/46): Add linux-aarch64 build - [warmenhoven](https://github.com/warmenhoven)
+* [#47](https://github.com/Zlika/theodore/pull/47): Add webOS to CI - [cscd98](https://github.com/cscd98)
+
+Misc
+----
+* [#37](https://github.com/Zlika/theodore/pull/37): Instructions to add the core into the Steam version of RetroArch - [sporniket](https://github.com/sporniket)
+
+Release 3.1 (2020/05/22)
+===========
+* New graphical virtual keyboards (press Select to show/hide).
+* [#21](https://github.com/Zlika/theodore/pull/21): Add psl1ght (ps3 lightweight SDK) compilation - [@phcoder](https://github.com/phcoder)
+* Auto load BASIC 1 cartridge instead of BASIC 128 cartridge on TO7/70.
+
+Release 3.0 (2020/03/21)
+===========
+* Add TO7 emulation.
+* Add TO7/70 emulation.
+* Change pixel format for better compatibility with low-end devices like PSP (thanks [@fjtrujy](https://github.com/fjtrujy) for helping me fix the problem).
+Warning: This change breaks the compatibility with old save state files.
+* [#19](https://github.com/Zlika/theodore/pull/19): Fix MSVC 2017 build - [@twinaphex](https://github.com/twinaphex)
+* [#17](https://github.com/Zlika/theodore/pull/17): Fix emscripten build - [@ToadKing](https://github.com/ToadKing)
+* [#16](https://github.com/Zlika/theodore/pull/16): Add build support for tvOS - [@yoshisuga](https://github.com/yoshisuga)
+* [#14](https://github.com/Zlika/theodore/pull/14): Fix build with mingw - [@webgeek1234](https://github.com/webgeek1234)
+* [#13](https://github.com/Zlika/theodore/pull/13): Fix build for ios-arm64 platform - [@yoshisuga](https://github.com/yoshisuga)
+* Update to latest version of the libretro API.
+
+Release 2.0.1 (2019/06/16)
+===========
+* [#12](https://github.com/Zlika/theodore/pull/12): Fix autostart for binary games on the Olivetti Prodest PC128 - [@troffmo5](https://github.com/troffmo5).
+
+Release 2.0 (2019/05/07)
+===========
+* Add MO6 emulation.
+* Add Olivetti Prodest PC128 emulation.
+* Add compile-time flag (UNDOC_OPCODES=1) to enable emulation of some undocumented 6809 opcodes.
+* Fix auto-detection of Thomson model always enabled.
+* In model autodetect mode, use MO5 for "memo5" files and TO8 for "memo7" files if the name of the file does not include the name of the computer.
+* Change mapping of "fire" button to "B" button.
+
+Release 1.7 (2019/03/15)
+===========
+* [#8](https://github.com/Zlika/theodore/issues/8): Fix sound in some games.
+* [#10](https://github.com/Zlika/theodore/issues/10): Add emulation of illegal opcode 0x11F1. Fixes some MO5 games.
+* Add core option to break on illegal opcodes in the debugger.
+* [#11](https://github.com/Zlika/theodore/issues/11): Fix keyboard emulation.
+* [#9](https://github.com/Zlika/theodore/issues/9): Add heuristic to choose between RUN" and LOADM"",,R for autorun on MO5.
+* Add auto-detection of the Thomson model based on the content filename.
+* Change mapping of virtual keyboard: now Start button starts the program and Select button simulates a keystroke.
+* Fix save state/rewind during tape loading.
+* Add support for so called "Classic platforms" in Makefile.
+
+Release 1.6 (2019/02/05)
+===========
+* Add MO5 emulation.
+* A more complex heuristic is used to start the game when the 'B' button of the gamepad is pressed, depending on the media type and of the emulated computer (cf. README file for more info).
+* [#7](https://github.com/Zlika/theodore/issues/7): Add core option to autorun the game.
+* Remove custom cheat code management (useless since RetroArch 1.7.4 and its built-in cheat code feature).
+
+Release 1.5 (2018/12/29)
+===========
+* Add TO9 emulation.
+* On TO9, the 'B' button of the gamepad simulates a keystroke on the 'D' key of the keyboard (BASIC 128), instead of the 'B' key for TO8/TO8D/TO9+ (BASIC 512).
+* Fix Caps Lock emulation.
+* Fix cartridge/tape no longer working after reset or change of Thomson version.
+* Fix tape drive emulation.
+* Fix MSVC2005/2008 build.
+
+Release 1.4 (2018/11/24)
+===========
+* Add TO9+ emulation.
+* Add support for Nintendo Switch platform.
+
+Release 1.3 (2018/08/13)
+===========
+* Workaround for the protection used by some FIL games (Atomik, Avenger, Way of the Tiger).
+* Workaround for the protection used by some Infogrames games (Dieux du stade 2, Dossier Boerhaave, Le temps d'une histoire).
+* Add support for SAP sectors with format=4 (fixes Space Tunnel).
+* Add experimental command-line disassembler/debugger.
+
+Release 1.2 (2018/07/30)
+===========
+* Add full support for SAP files (without conversion to FD format).
+* Fix build for 3DS, PS3 and MSVC2003/2005/2010.
+* Release keys pressed through the virtual keyboard (fixes Avenger game).
+
+Release 1.1 (2018/06/21)
+===========
+* Fix gamma correction.
+* Add 'Space' to the virtual keyboard.
+* Fix segfault during serialization.
+* More accurate sound level.
+* [#3](https://github.com/Zlika/theodore/issues/3): Fix compilation errors and wrong colors on ngc, wii and wiiu.
+
+Release 1.0 (2018/05/12)
+===========
+* Add support for save states.
+* Add TO8 emulation.
+* Add support for cheat codes.
+
+Release 0.9 (2018/05/01)
+===========
+* Remove the standalone version of the emulator.
+* Add an option to enable/disable printer emulation.
+* Add a simple virtual keyboard feature to play without a keyboard.
+* Add support for the SAP file format.
+* Fix an occasional segfault.
+
+Release 0.8 (2018/04/23)
+===========
+First release.
+* Import of DCTO8D 2009.05 source code (http://dcto8.free.fr/).
+* Replace makefile by autotools for compilation.
+* Fix a buffer overflow and a memory leak.
+* Upgrade to SDL 2.
+* Add fullscreen mode.
+* Simplify source code, minimize coupling and define clean interfaces between compilation units.
+* Add compatibility with libretro.
